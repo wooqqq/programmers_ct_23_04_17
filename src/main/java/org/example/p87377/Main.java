@@ -1,7 +1,7 @@
 package org.example.p87377;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
 }
@@ -39,8 +39,8 @@ class Solution {
         return Point.of(x, y);
     }
 
-    public List<Point> intersections(int[][] line) {
-        List<Point> points = new ArrayList<>();
+    public Set<Point> intersections(int[][] line) {
+        Set<Point> points = new HashSet<>();
 
         for (int i = 0; i < line.length; i++) {
             for (int j = i + 1; j < line.length; j++) {
@@ -76,6 +76,7 @@ class Point {
         return of((long) x, (long) y);
     }
 
+    // 객체 비교, 가독성 좋음
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -83,6 +84,14 @@ class Point {
 
         if (x != point.x) return false;
         return y == point.y;
+    }
+
+    // 객체 비교, 객체로부터 고유키를 뽑아낸다. (int), 대량비교 좋음, 가독성 나쁨
+    @Override
+    public int hashCode() {
+        int result = (int) (x ^ (x >>> 32));
+        result = 31 * result + (int) (y ^ (y >>> 32));
+        return result;
     }
 
     @Override
