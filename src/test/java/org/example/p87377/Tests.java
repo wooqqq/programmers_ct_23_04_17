@@ -3,6 +3,8 @@ package org.example.p87377;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import javax.management.relation.RoleUnresolvedList;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Tests {
@@ -42,6 +44,32 @@ public class Tests {
                 )
         ).isEqualTo(
                 Point.of(0, 0)
+        );
+    }
+
+    @Test
+    @DisplayName("교점, [[0, 1, -1], [1, 0, -1]]")
+    void t1_4() {
+        assertThat(
+                new Solution().intersection(
+                        new int[]{0, 1, -1},
+                        new int[]{1, 0, -1}
+                )
+        ).isEqualTo(
+                Point.of(1, 1)
+        );
+    }
+
+    @Test
+    @DisplayName("교점, [[0, 1, -1], [1, 0, 1]]")
+    void t1_5() {
+        assertThat(
+                new Solution().intersection(
+                        new int[]{0, 1, -1},
+                        new int[]{1, 0, 1}
+                )
+        ).isEqualTo(
+                Point.of(-1, 1)
         );
     }
 }
