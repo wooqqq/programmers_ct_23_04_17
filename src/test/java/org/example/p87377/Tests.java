@@ -3,20 +3,20 @@ package org.example.p87377;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import javax.management.relation.RoleUnresolvedList;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Tests {
     @Test
-    @DisplayName("교점 [[1, -1, 0], [2, -1, 0]]")
+    @DisplayName("교점, [[1, -1, 0], [2, -1, 0]]")
     void t1() {
         assertThat(
                 new Solution().intersection(
                         new int[]{1, -1, 0},
                         new int[]{2, -1, 0}
                 )
-        ).isEqualTo(new long[]{0, 0});
+        ).isEqualTo(
+                Point.of(0, 0)
+        );
     }
 
     @Test
@@ -28,7 +28,7 @@ public class Tests {
                         new int[]{4, -1, 0}
                 )
         ).isEqualTo(
-                new long[]{0, 0}
+                Point.of(0, 0)
         );
     }
 
@@ -41,7 +41,7 @@ public class Tests {
                         new int[]{4, -1, 0}
                 )
         ).isEqualTo(
-                new long[]{0, 0}
+                Point.of(0, 0)
         );
     }
 }
