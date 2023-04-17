@@ -3,6 +3,7 @@ package org.example.p87377;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Main {
 }
@@ -93,6 +94,14 @@ class Solution {
         Arrays.stream(matrix).forEach(row -> Arrays.fill(row, '.'));
 
         return matrix;
+    }
+
+    public Set<Point> positivePoints(Set<Point> points) {
+        Point minPoint = getMinPoint(points);
+
+        return points.stream()
+                .map(p -> Point.of(p.x - minPoint.x, p.y - minPoint.y))
+                .collect(Collectors.toSet());
     }
 }
 
