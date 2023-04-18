@@ -1,12 +1,15 @@
 package org.example.p87377;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class Tests {
     @Test
     @DisplayName("교점, [[1, -1, 0], [2, -1, 0]]")
