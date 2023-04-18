@@ -313,4 +313,50 @@ public class Tests {
                 }
         );
     }
+
+    @Test
+    @DisplayName("answer, [[1, -1, 0], [2, -1, 0]]")
+    void t09() {
+        assertThat(
+                new Solution().solution(new int[][]{{1, -1, 0}, {2, -1, 0}})
+        ).isEqualTo(
+                new String[]{"*"}
+        );
+    }
+
+    @Test
+    @DisplayName("answer, [[1, -1, 0], [2, -1, 0], [4, -1, 0]]")
+    void t09_2() {
+        assertThat(
+                new Solution().solution(new int[][]{{1, -1, 0}, {2, -1, 0}, {4, -1, 0}})
+        ).isEqualTo(
+                new String[]{"*"}
+        );
+    }
+
+    @Test
+    @DisplayName("answer, [[0, 1, -1], [1, 0, -1], [1, 0, 1]]")
+    void t09_3() {
+        assertThat(
+                new Solution().solution(new int[][]{
+                        {2, -1, 4},
+                        {-2, -1, 4},
+                        {0, -1, 1},
+                        {5, -8, -12},
+                        {5, 8, 12}
+                })
+        ).isEqualTo(
+                new String[]{
+                        "....*....",
+                        ".........",
+                        ".........",
+                        "*.......*",
+                        ".........",
+                        ".........",
+                        ".........",
+                        ".........",
+                        "*.......*"
+                }
+        );
+    }
 }
