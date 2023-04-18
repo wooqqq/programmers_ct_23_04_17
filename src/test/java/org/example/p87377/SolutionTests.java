@@ -1,5 +1,6 @@
 package org.example.p87377;
 
+import org.example.TestUt;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,9 @@ public class SolutionTests {
     @DisplayName("교점, [[1, -1, 0], [2, -1, 0]]")
     void t01() {
         assertThat(
-                new Solution().intersection(
+                (Point) TestUt.call(
+                        new Solution(),
+                        "intersection",
                         new int[]{1, -1, 0},
                         new int[]{2, -1, 0}
                 )
@@ -26,7 +29,9 @@ public class SolutionTests {
     @DisplayName("교점, [[1, -1, 0], [4, -1, 0]]")
     void t01_2() {
         assertThat(
-                new Solution().intersection(
+                (Point) TestUt.call(
+                        new Solution(),
+                        "intersection",
                         new int[]{1, -1, 0},
                         new int[]{4, -1, 0}
                 )
@@ -39,7 +44,9 @@ public class SolutionTests {
     @DisplayName("교점, [[2, -1, 0], [4, -1, 0]]")
     void t01_3() {
         assertThat(
-                new Solution().intersection(
+                (Point) TestUt.call(
+                        new Solution(),
+                        "intersection",
                         new int[]{2, -1, 0},
                         new int[]{4, -1, 0}
                 )
@@ -52,7 +59,9 @@ public class SolutionTests {
     @DisplayName("교점, [[0, 1, -1], [1, 0, -1]]")
     void t01_4() {
         assertThat(
-                new Solution().intersection(
+                (Point) TestUt.call(
+                        new Solution(),
+                        "intersection",
                         new int[]{0, 1, -1},
                         new int[]{1, 0, -1}
                 )
@@ -65,7 +74,9 @@ public class SolutionTests {
     @DisplayName("교점, [[0, 1, -1], [1, 0, 1]]")
     void t01_5() {
         assertThat(
-                new Solution().intersection(
+                (Point) TestUt.call(
+                        new Solution(),
+                        "intersection",
                         new int[]{0, 1, -1},
                         new int[]{1, 0, 1}
                 )

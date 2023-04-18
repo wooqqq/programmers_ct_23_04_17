@@ -18,7 +18,7 @@ class Solution {
         return drawOnCoordinate(matrix);
     }
 
-    public Point intersection(int[] line1, int[] line2) {
+    private Point intersection(int[] line1, int[] line2) {
         // Ax + By + E = 0
         double A = line1[0];
         double B = line1[1];

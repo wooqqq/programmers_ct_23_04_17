@@ -1,4 +1,4 @@
-package org.example.p87377;
+package org.example;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
