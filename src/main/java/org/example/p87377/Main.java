@@ -18,7 +18,7 @@ class Solution {
         return drawOnCoordinate(matrix);
     }
 
-    private Point intersection(int[] line1, int[] line2) {
+    public Point intersection(int[] line1, int[] line2) {
         // Ax + By + E = 0
         double A = line1[0];
         double B = line1[1];
@@ -45,7 +45,7 @@ class Solution {
         return Point.of(x, y);
     }
 
-    private Points intersections(int[][] line) {
+    public Points intersections(int[][] line) {
         Points points = Points.of();
 
         for (int i = 0; i < line.length; i++) {
@@ -62,7 +62,7 @@ class Solution {
         return points;
     }
 
-    private String[] drawOnCoordinate(char[][] matrix) {
+    public String[] drawOnCoordinate(char[][] matrix) {
         return Ut.revRange(0, matrix.length)
                 .boxed()
                 .map(i -> matrix[i])
@@ -168,7 +168,7 @@ class Points implements Iterable<Point> {
         return data.stream();
     }
 
-    private Point getMinPoint() {
+    public Point getMinPoint() {
         long x = Long.MAX_VALUE;
         long y = Long.MAX_VALUE;
 
@@ -180,7 +180,7 @@ class Points implements Iterable<Point> {
         return Point.of(x, y);
     }
 
-    private Point getMaxPoint() {
+    public Point getMaxPoint() {
         long x = Long.MIN_VALUE;
         long y = Long.MIN_VALUE;
 
@@ -192,7 +192,7 @@ class Points implements Iterable<Point> {
         return Point.of(x, y);
     }
 
-    private Points positivePoints() {
+    public Points positivePoints() {
         Point minPoint = getMinPoint();
 
         return Points.of(
@@ -202,7 +202,7 @@ class Points implements Iterable<Point> {
         );
     }
 
-    private char[][] emptyMatrix() {
+    public char[][] emptyMatrix() {
         Point minPoint = getMinPoint();
         Point maxPoint = getMaxPoint();
 
