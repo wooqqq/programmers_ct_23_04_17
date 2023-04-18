@@ -5,12 +5,10 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import java.security.cert.PolicyNode;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
-public class Tests {
+public class SolutionTests {
     @Test
     @DisplayName("교점, [[1, -1, 0], [2, -1, 0]]")
     void t01() {
