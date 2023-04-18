@@ -22,4 +22,8 @@ public class TestUt {
             throw new RuntimeException(e);
         }
     }
+
+    public static <T> T callArr(Object obj, String methodName, Object... args) {
+        return call(obj, methodName, new Object[]{args});
+    }
 }
