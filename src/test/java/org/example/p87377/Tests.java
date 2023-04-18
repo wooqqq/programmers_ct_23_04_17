@@ -84,7 +84,7 @@ public class Tests {
                         new int[][]{{0, 1, -1}, {1, 0, 1}}
                 )
         ).isEqualTo(
-                Set.of(Point.of(-1, 1))
+                Points.of(Point.of(-1, 1))
         );
     }
 
@@ -96,7 +96,7 @@ public class Tests {
                         new int[][]{{0, 1, -1}, {1, 0, -1}, {1, 0, 1}}
                 )
         ).isEqualTo(
-                Set.of(Point.of(1, 1), Point.of(-1, 1))
+                Points.of(Point.of(1, 1), Point.of(-1, 1))
         );
     }
 
@@ -108,7 +108,7 @@ public class Tests {
                         new int[][]{{1, -1, 0}, {2, -1, 0}, {4, -1, 0}}
                 )
         ).isEqualTo(
-                Set.of(Point.of(0, 0))
+                Points.of(Point.of(0, 0))
         );
     }
 
@@ -120,7 +120,7 @@ public class Tests {
                         new int[][]{{2, -1, 4}, {-2, -1, 4}, {0, -1, 1}, {5, -8, -12}, {5, 8, 12}}
                 )
         ).isEqualTo(
-                Set.of(Point.of(4, 1), Point.of(4, -4), Point.of(-4, -4), Point.of(-4, 1), Point.of(0, 4))
+                Points.of(Point.of(4, 1), Point.of(4, -4), Point.of(-4, -4), Point.of(-4, 1), Point.of(0, 4))
         );
     }
 
