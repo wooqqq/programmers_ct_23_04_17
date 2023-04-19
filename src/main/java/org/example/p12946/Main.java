@@ -1,8 +1,5 @@
 package org.example.p12946;
 
-import java.lang.invoke.MethodHandleInfo;
-import java.util.logging.Handler;
-
 public class Main {
 }
 
@@ -31,5 +28,7 @@ class Hanoi {
         if (N == 2 && FROM == 2 && TO == 3) return null;
         if (N == 2 && FROM == 3 && TO == 1) return null;
         if (N == 2 && FROM == 3 && TO == 2) return null;
+
+        return null;
     }
 }
