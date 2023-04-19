@@ -1,13 +1,10 @@
 package org.example.p87377;
 
-import org.assertj.core.internal.bytebuddy.description.type.TypeDescription;
 import org.example.TestUt;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-
-import java.security.cert.PolicyNode;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
