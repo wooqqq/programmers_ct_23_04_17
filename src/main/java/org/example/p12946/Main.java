@@ -22,6 +22,8 @@ class Hanoi {
         this.FROM = from;
         this.TO = to;
         this.N = n;
+
+        calculate();
     }
 
     public void calculate() {
