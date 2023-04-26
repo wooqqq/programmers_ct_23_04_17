@@ -1,7 +1,5 @@
 package org.example.p42840;
 
-import com.sun.source.tree.BreakTree;
-
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -25,9 +23,12 @@ public class Main {
 
 class Solution {
     public int[] solution(int[] answers) {
-        return Stream.of(scoreOf1(answers), scoreOf2(answers), scoreOf3(answers))
+        int maxPoint = Stream.of(scoreOf1(answers), scoreOf2(answers), scoreOf3(answers))
                 .mapToInt(Integer::intValue)
-                .toArray();
+                .max()
+                .getAsInt();
+
+        return new int[]{maxPoint};
     }
 
     private int scoreOf1(int[] answers) {
