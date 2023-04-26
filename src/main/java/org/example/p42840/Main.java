@@ -1,6 +1,7 @@
 package org.example.p42840;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Main {
@@ -23,12 +24,16 @@ public class Main {
 
 class Solution {
     public int[] solution(int[] answers) {
+        // 최고점수 얻고
         int maxPoint = Stream.of(scoreOf1(answers), scoreOf2(answers), scoreOf3(answers))
                 .mapToInt(Integer::intValue)
                 .max()
                 .getAsInt();
 
-        return new int[]{maxPoint};
+        // 각각의 방법으로 했을 때의 점수를 얻은 후 그것이 최고점수이면 배열에 수포자 번호를 담는다.
+        return IntStream.rangeClosed(1, 3)
+                .filter(patternNo -> maxPoint == scoreOf(answers, patternNo))
+                .toArray();
     }
 
     private int scoreOf1(int[] answers) {
@@ -41,6 +46,13 @@ class Solution {
 
     private int scoreOf3(int[] answers) {
         return scoreOf(answers, new int[]{3, 3, 1, 1, 2, 2, 4, 4, 5, 5});
+    }
+
+    private int scoreOf(int[] answers, int patternNo) {
+        if (patternNo == 1) return scoreOf1(answers);
+        if (patternNo == 2) return scoreOf2(answers);
+
+        return scoreOf3(answers);
     }
 
     private int scoreOf(int[] answers, int[] pattern) {
