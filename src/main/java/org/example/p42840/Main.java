@@ -1,6 +1,5 @@
 package org.example.p42840;
 
-import java.sql.Array;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
