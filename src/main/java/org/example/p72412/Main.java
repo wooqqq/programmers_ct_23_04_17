@@ -1,5 +1,7 @@
 package org.example.p72412;
 
+import org.w3c.dom.ls.LSInput;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -70,5 +72,14 @@ class Solution {
         }
 
         return all;
+    }
+
+    public int countBiggerThan(List<Integer> scores, int score) {
+        for (int i = 0; i < scores.size(); i++) {
+            if (scores.get(i) >= score) return scores.size() - i;
+        }
+
+        return 0;
+
     }
 }
