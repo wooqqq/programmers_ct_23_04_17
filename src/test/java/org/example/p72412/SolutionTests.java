@@ -22,6 +22,15 @@ public class SolutionTests {
             "python backend senior chicken 50"
     };
 
+    private final String[] query = new String[]{
+            "java and backend and junior and pizza 100",
+            "python and frontend and senior and chicken 200",
+            "cpp and - and senior and pizza 250",
+            "- and backend and senior and - 150",
+            "- and - and - and chicken 100",
+            "- and - and - and - 150"
+    };
+
     @Test
     @DisplayName("python frontend senior chicken -> 150, 210")
     void t1() {
@@ -74,5 +83,13 @@ public class SolutionTests {
         assertThat(
                 new Solution().countBiggerThan(List.of(2, 4, 6, 8, 10, 12, 14), 8)
         ).isEqualTo(4);
+    }
+
+    @Test
+    @DisplayName("solution")
+    void t7() {
+        assertThat(
+                new Solution().solution(info, query)
+        ).containsExactly(1, 1, 1, 1, 2, 4);
     }
 }
