@@ -1,7 +1,5 @@
 package org.example.p72412;
 
-import org.w3c.dom.ls.LSInput;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +15,7 @@ class Solution {
         int[] answer = new int[query.length];
 
         for (int i = 0; i < answer.length; i++) {
+
             int lastSpaceIndex = query[i].lastIndexOf(" "); // 가장 마지막으로 등장하는 공백의 인덱스 찾기
 
             String key = query[i].substring(0, lastSpaceIndex).replaceAll(" and ", " ");
@@ -94,7 +93,7 @@ class Solution {
         int right = scores.size() - 1;
 
         while (left <= right) {
-            int mid = scores.size() - 1;
+            int mid = (left + right) / 2; // mid
 
             if (scores.get(mid) < score) {
                 left = mid + 1;
