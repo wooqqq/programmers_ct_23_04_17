@@ -87,11 +87,22 @@ class Solution {
     }
 
     public int countBiggerThan(List<Integer> scores, int score) {
-        for (int i = 0; i < scores.size(); i++) {
-            if (scores.get(i) >= score) return scores.size() - i;
+        if (scores == null) return 0;
+        if (scores.isEmpty()) return 0;
+
+        int left = 0;
+        int right = scores.size() - 1;
+
+        while (left <= right) {
+            int mid = scores.size() - 1;
+
+            if (scores.get(mid) < score) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
         }
 
-        return 0;
-
+        return scores.size() - left;
     }
 }
