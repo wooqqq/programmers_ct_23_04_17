@@ -5,6 +5,30 @@ public class Main {
 
 class Solution {
     public int solution(int[] numbers, int target) {
-        return 5;
+        return new NumberOfCases(numbers, target).calc();
+    }
+}
+
+class NumberOfCases {
+    private final int[] numbers;
+    private final int target;
+
+    public NumberOfCases(int[] numbers, int target) {
+        this.numbers = numbers;
+        this.target = target;
+    }
+
+    int calc() {
+        return calc(0, 0);
+    }
+
+    private int calc(int depth, int sum) {
+        // 내가 끝방에 있을 때
+        if (depth == numbers.length) return sum == target ? 1 : 0;
+
+        // 그렇지 않을 때는 탐색을 이어간다.
+        // 각 방마다 통로가 위쪽(+), 아래쪽(-)이 있다.
+        return calc(depth + 1, sum + numbers[depth])
+                + calc(depth + 1, sum - numbers[depth]);
     }
 }
