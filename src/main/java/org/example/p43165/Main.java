@@ -19,16 +19,19 @@ class NumberOfCases {
     }
 
     int calc() {
-        return calc(0, 0);
+        return calc(0, 0, "0");
     }
 
-    private int calc(int depth, int sum) {
+    private int calc(int depth, int sum, String history) {
         // 내가 끝방에 있을 때
-        if (depth == numbers.length) return sum == target ? 1 : 0;
+        if (depth == numbers.length) {
+            System.out.println("history : " + history + " = " + sum);
+            return sum == target ? 1 : 0;
+        }
 
-        // 그렇지 않을 때는 탐색을 이어간다.
+        // 그렇지 않을 때는 탐색을 이어 간다.
         // 각 방마다 통로가 위쪽(+), 아래쪽(-)이 있다.
-        return calc(depth + 1, sum + numbers[depth])
-                + calc(depth + 1, sum - numbers[depth]);
+        return calc(depth + 1, sum + numbers[depth], history + " + " + numbers[depth])
+                + calc(depth + 1, sum - numbers[depth], history + " - " + numbers[depth]);
     }
 }
