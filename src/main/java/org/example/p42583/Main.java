@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.StreamHandler;
 import java.util.stream.IntStream;
 
 public class Main {
 }
 
 class Solution {
-    public int solution(int bridge_length, int weight, int[] truch_weights) {
+    public int solution(int bridge_length, int weight, int[] truck_weights) {
         // 다리 만들기
         // - 흐른 시간(초)
         // - 최대 하중
@@ -23,9 +21,9 @@ class Solution {
         // 출발여부
         // 패스여부
         // 다리에 진입한 후 흐른 시간
-        List<Truck> trucks = makeTrucks(bridge, truch_weights);
+        List<Truck> trucks = makeTrucks(bridge, truck_weights);
 
-        // 모든 트록이 통과할 때까지 반복
+        // 모든 트럭이 통과할 때까지 반복
         while (!trucks.stream().allMatch(Truck::isPassed)) {
             bridge.increaseSeconds(); // 초 증가
             trucks.forEach(Truck::tick); // 모든 트럭이 초 증가에 따른 행동을 하도록
@@ -47,6 +45,7 @@ class Solution {
 
         return trucks;
     }
+
 }
 
 class Bridge {
@@ -90,7 +89,6 @@ class Bridge {
     }
 }
 
-
 class Truck {
     // 다리 길이
     // 이 트럭의 무게
@@ -100,7 +98,7 @@ class Truck {
     private int seconds = 0;
     // 이 트럭이 다리에 진입했는지 여부
     private boolean started = false;
-    // 내 바로 앞의 트럭
+    // 내 바로앞의 트럭
     private final Truck prev;
 
     public Truck(Bridge bridge, int weight, Truck prev) {
@@ -156,28 +154,39 @@ class Truck {
 
 class Solution2 {
     public int solution(int bridge_length, int weight, int[] truck_weights) {
-        // 다리를 만든다
+        // 다리를 만든다.
         Queue<Integer> bridge = new LinkedList<>();
 
-        // 큐의 길이를 늘린다
+        // 큐의 길이를 늘린다.
         // 엘리먼트 0은 해당칸이 비어있음을 의미
         IntStream.range(0, bridge_length).forEach(i -> bridge.add(0));
 
         int seconds = 0;
 
-        boolean allPassed = false;
+        // 다리에 올려져 있는 무게
+        int onBridgeWeight = 0;
+        int truckIndex = 0;
 
-        while (true) {
+        // 트럭이 모두 다 진입할 때 까지 반복
+        while (truckIndex < truck_weights.length) {
+            onBridgeWeight -= bridge.poll(); // 다리 끝에 있는 녀석을 꺼낸다.
+
+            // 이번에 진입시켜야 하는 트럭의 무게
+            int truckWeight = truck_weights[truckIndex];
+
+            // 진입시킬 수 있는지 확인
+            if (onBridgeWeight + truckWeight <= weight) {
+                bridge.add(truckWeight);
+                onBridgeWeight += truckWeight;
+                truckIndex++;
+            } else {
+                bridge.add(0);
+            }
+
             seconds++;
-
-            // 다리 끝에 있는 녀석을 꺼낸다
-            // 꺼낼 때 무게를 감소시킨다
-
-            // 다리에 0 또는 트럭(트럭의 무게)를 진입시킨다
-            // 진입할 때 무게를 증가시킨다
-
-            if (allPassed) break;
         }
+
+        // 아직 다리위에 남아 있는 트럭이 있다면, 그것이 다리를 지날 때 까지 기다림
 
         return seconds;
     }
