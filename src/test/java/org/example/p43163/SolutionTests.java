@@ -14,4 +14,16 @@ public class SolutionTests {
                 new Solution().solution("hit", "cog", new String[]{"hot", "dot", "dog", "lot", "log", "cog"})
         ).isEqualTo(4);
     }
+
+    @Test
+    @DisplayName("isConvertible")
+    void t2() {
+        assertThat(
+                new Solution().isConvertible("hit", "hot")
+        ).isEqualTo(true);
+
+        assertThat(
+                new Solution().isConvertible("hit", "lot")
+        ).isEqualTo(false);
+    }
 }
