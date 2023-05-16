@@ -187,6 +187,10 @@ class Solution2 {
         }
 
         // 아직 다리위에 남아 있는 트럭이 있다면, 그것이 다리를 지날 때 까지 기다림
+        while (onBridgeWeight > 0) {
+            seconds++;
+            onBridgeWeight -= bridge.poll();
+        }
 
         return seconds;
     }
